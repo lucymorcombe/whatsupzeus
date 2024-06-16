@@ -1,0 +1,4120 @@
+/* !!!!!! NOT ABLE TO TEST ON SAFARI !!!!!! */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+body.home {
+    background: url(img/background2.svg);
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+
+body.family {
+    background: url(img/insideBackground.svg);
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+
+body.mythcrea {
+    background: url(img/pathbg.svg);
+    background-size: cover;
+    background-position: right bottom;
+    background-attachment: fixed;
+}
+
+body.stars {
+    height: 100vh;
+    background: rgb(168, 204, 233);
+    background: linear-gradient(180deg, rgba(168, 204, 233, 1) 0%, rgba(168, 204, 233, 1) 100%);
+    transition: 1s all ease;
+    overflow-y: scroll;
+}
+
+body.stars::before {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(98, 76, 150, 1) 0%, rgba(98, 76, 150, 1) 0%, rgba(7, 11, 52, 1) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s linear;
+    content: "";
+
+}
+
+body.gradToggle::before {
+    opacity: 1;
+}
+
+body.mobStars {
+    background: rgb(72, 52, 117);
+    background: linear-gradient(180deg, rgba(72, 52, 117, 1) 0%, rgba(7, 11, 52, 1) 100%);
+}
+
+#menuWrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.menuWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+
+}
+
+.menuWrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+
+.menuWrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 40px;
+    height: 30px;
+    padding: 0.3rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuWrap .hamburger > div {
+    position: relative;
+    width: 90%;
+    height: 4px;
+    background-color: #f1a60b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.menuWrap .hamburger > div:before,
+.menuWrap .hamburger > div:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 4px;
+    background: #f1a60b;
+}
+
+.menuWrap .hamburger > div:after {
+    top: 10px;
+}
+
+.menuWrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+
+.menuWrap .toggler:checked + .hamburger > div:before,
+.menuWrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.menuWrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+}
+
+.menuWrap .toggler:checked ~ .menu {
+    visibility: visible;
+}
+
+.menuWrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: 1s;
+}
+
+.menuWrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.menuWrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuWrap .menu > div {
+    background: rgba(13, 96, 150, 0.9);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+
+.menuWrap .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.menuWrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #f1a60b;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.menuWrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+#wrapper1 {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: grid;
+    grid-template-columns: 0.85fr 1.3fr 0.85fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "left title right"
+        "left middle right"
+        "left2 middle right";
+}
+
+.mobEnter {
+    display: none;
+}
+
+.titleCloud {
+    grid-area: title;
+}
+
+.titleCloud img {
+    padding-top: 2px;
+    margin-left: 5%;
+}
+
+.world {
+    grid-area: middle;
+    position: relative;
+    top: -30px;
+    cursor: pointer;
+}
+
+.world img {
+    animation: rotation 25s infinite linear;
+    top: -50px;
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.familyCloud {
+    grid-area: right;
+    position: relative;
+    top: -50px;
+    cursor: pointer;
+    display: none;
+}
+
+.familyCloud img {
+    margin-top: 50vh;
+    margin-left: 10%;
+    width: 90%;
+}
+
+.starsCloud {
+    grid-area: left;
+    z-index: 100;
+    position: relative;
+    top: 30px;
+    left: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.starsCloud img {
+    margin-top: 15vh;
+    margin-left: 10%;
+    width: 90%;
+}
+
+.creaturesCloud {
+    grid-area: left2;
+    position: relative;
+    top: -60px;
+    left: -10px;
+    cursor: pointer;
+    z-index: 20;
+    display: none;
+}
+
+.creaturesCloud img {
+    margin-left: 10%;
+    width: 90%;
+}
+
+#wrapper2 {
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-top: 60px;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "top1 top1 top1 top1 top2 top2 top2 top2 top3 top3 top3 top3 top4 top4 top4 top4 top5 top5 top5 top5 top6 top6 top6 top6"
+        ". . . . . . . . . kids kids kids kids kids kids . . . . . back back . ."
+        "mid1 mid1 mid1 mid2 mid2 mid2 mid3 mid3 mid3 mid4 mid4 mid4 mid5 mid5 mid5 mid6 mid6 mid6 mid7 mid7 mid7 mid8 mid8 mid8"
+}
+
+header {
+    top: 0;
+    margin: 0 auto;
+    width: 20%;
+}
+
+.vineLeft {
+    visibility: hidden;
+}
+
+.vineRight {
+    visibility: hidden;
+}
+
+.familyTitle img {
+    width: 100%;
+}
+
+.mobFamilyTitle {
+    display: none;
+}
+
+.mobTrophy {
+    visibility: hidden;
+}
+
+
+.zeusStand {
+    grid-area: top3;
+    cursor: pointer;
+}
+
+.zeusTrophy {
+    grid-area: top3;
+    cursor: pointer;
+}
+
+.zeusFocus {
+    grid-area: top3;
+    position: relative;
+    left: 50%;
+    width: 120%;
+    top: -80px;
+}
+
+.speechBubble img {
+    display: block;
+}
+
+.speechBubble {
+    grid-area: top2;
+    position: relative;
+    display: inline-block;
+    left: -10px;
+    top: -10px;
+    width: 120%;
+}
+
+.speechBubble p {
+    font-size: 1vw;
+    position: absolute;
+    top: -2px;
+    padding-left: 8px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.heraStand {
+    grid-area: top4;
+    cursor: pointer;
+}
+
+.heraTrophy {
+    grid-area: top4;
+    cursor: pointer;
+}
+
+.heraFocus {
+    grid-area: top4;
+    position: relative;
+    left: -50%;
+    width: 120%;
+    top: -80px;
+}
+
+.posStand {
+    grid-area: top1;
+    cursor: pointer;
+}
+
+.posTrophy {
+    grid-area: top1;
+    cursor: pointer;
+}
+
+.posFocus {
+    grid-area: top1;
+    position: relative;
+    left: 250%;
+    top: -80px;
+    width: 120%;
+}
+
+.demStand {
+    grid-area: top2;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.demTrophy {
+    grid-area: top2;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.demFocus {
+    grid-area: top2;
+    position: relative;
+    left: 150%;
+    top: -80px;
+    width: 120%;
+}
+
+.hadesStand {
+    grid-area: top6;
+    cursor: pointer;
+}
+
+.hadesTrophy {
+    grid-area: top6;
+    cursor: pointer;
+}
+
+.hadesFocus {
+    grid-area: top6;
+    position: relative;
+    left: -250%;
+    top: -80px;
+    width: 120%;
+}
+
+.hestiaStand {
+    grid-area: top5;
+    cursor: pointer;
+}
+
+.hestiaTrophy {
+    grid-area: top5;
+    cursor: pointer;
+}
+
+.hestiaFocus {
+    grid-area: top5;
+    position: relative;
+    left: -150%;
+    top: -80px;
+    width: 120%;
+}
+
+.kids {
+    grid-area: kids;
+    margin: 0;
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.kids p {
+    color: white;
+    font-size: 0.9rem;
+    background-color: #0054a4;
+    text-align: center;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.mobKids {
+    display: none;
+}
+
+.back {
+    grid-area: top4;
+    position: relative;
+    top: 70vh;
+    /*    top: -130px;*/
+    left: -49%;
+    margin: 0px;
+    margin-top: 30px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.back p {
+    color: white;
+    font-size: 0.9rem;
+    background-color: #a31127;
+    text-align: center;
+    border-radius: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.ares {
+    grid-area: mid2;
+    max-height: 100px;
+    position: relative;
+    top: -300px;
+    right: 0px;
+    z-index: 10;
+    padding-top: 30px;
+    cursor: pointer;
+}
+
+.aresTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.aphrodite {
+    grid-area: mid2;
+    max-height: 100px;
+    position: relative;
+    left: 120px;
+    top: -300px;
+    cursor: pointer;
+    padding-top: 30px;
+
+}
+
+.aphTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.heph {
+    grid-area: mid1;
+    max-height: 100px;
+    position: relative;
+    left: 40px;
+    top: -300px;
+    cursor: pointer;
+    padding-top: 30px;
+
+}
+
+.hephTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.apollo {
+    grid-area: mid3;
+    max-height: 100px;
+    position: relative;
+    left: 100px;
+    top: -300px;
+    cursor: pointer;
+    padding-top: 30px;
+}
+
+.apolloTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.artemis {
+    grid-area: mid4;
+    position: relative;
+    left: 50px;
+    top: -300px;
+    cursor: pointer;
+    padding-top: 30px;
+}
+
+.artemisTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.pers {
+    grid-area: mid5;
+    position: relative;
+    left: 60px;
+    top: -300px;
+    cursor: pointer;
+    padding-top: 30px;
+}
+
+.persTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.athena {
+    grid-area: mid6;
+    position: relative;
+    z-index: 10;
+    right: -20px;
+    top: -300px;
+    cursor: pointer;
+    padding-top: 30px;
+}
+
+.athenaTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.dion {
+    grid-area: mid7;
+    position: relative;
+    top: -300px;
+    right: 10px;
+    cursor: pointer;
+    padding-top: 30px;
+    z-index: 5;
+}
+
+.dionTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.hermes {
+    grid-area: mid8;
+    position: relative;
+    top: -300px;
+    right: 60px;
+    cursor: pointer;
+    padding-top: 30px;
+    z-index: 2;
+}
+
+.hermesTrophy {
+    grid-area: mid1;
+    width: 150%;
+    position: relative;
+    left: 10px;
+    top: -320px;
+}
+
+.mobClose {
+    display: none;
+}
+
+.zeusInfo1 {
+    grid-area: top1;
+    position: relative;
+    width: 220%;
+    top: -100px;
+    left: 0px;
+    z-index: 20;
+}
+
+.zeusInfo1 p {
+    font-size: 0.75rem;
+    padding: 10px 10px 10px 10px;
+    background-color: #e77425;
+    border-radius: 20px;
+    color: #fec65a;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.zeusInfo2 {
+    grid-area: top1;
+    position: relative;
+    width: 220%;
+    top: 20px;
+    left: -30px;
+    z-index: 20;
+}
+
+.zeusInfo2 p {
+    font-size: 0.75rem;
+    padding: 10px 10px 10px 10px;
+    background-color: #fec65a;
+    color: #e77425;
+    border-radius: 20px;
+}
+
+.zeusInfo3 {
+    grid-area: top1;
+    position: relative;
+    width: 220%;
+    top: 130px;
+    left: 0;
+    z-index: 20;
+}
+
+.zeusInfo3 p {
+    font-size: 0.75rem;
+    padding: 10px 10px 10px 10px;
+    background-color: #e77425;
+    border-radius: 20px;
+    color: #fec65a;
+}
+
+.zeusInfo4 {
+    grid-area: top1;
+    position: relative;
+    width: 220%;
+    top: 240px;
+    left: -30px;
+    z-index: 20;
+}
+
+.zeusInfo4 p {
+    font-size: 0.75rem;
+    padding: 10px 10px 10px 10px;
+    background-color: #fec65a;
+    color: #e77425;
+    border-radius: 20px;
+}
+
+.zeusInfo5 {
+    grid-area: top1;
+    position: relative;
+    width: 220%;
+    top: 350px;
+    left: 0px;
+    z-index: 20;
+}
+
+.zeusInfo5 p {
+    font-size: 0.75rem;
+    padding: 10px 10px 10px 10px;
+    background-color: #e77425;
+    border-radius: 20px;
+    color: #fec65a;
+}
+
+.zeusInfo6 {
+    grid-area: top4;
+    position: relative;
+    width: 230%;
+    top: -50px;
+    left: 140px;
+    z-index: 20;
+    background-color: #fec65a;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.zeusInfo6 h2 {
+    text-align: center;
+    color: #e77425;
+}
+
+.zeusInfo6 p {
+    font-size: 0.85rem;
+    color: #e77425;
+}
+
+.heraInfo1 {
+    grid-area: top1;
+    position: relative;
+    width: 230%;
+    top: -30px;
+    left: -20px;
+    z-index: 20;
+    background-color: #c8a2c8;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.heraInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #5c0c6d;
+}
+
+.heraInfo1 p {
+    font-size: 0.85rem;
+    color: #5c0c6d;
+}
+
+.heraInfo2 {
+    grid-area: top5;
+    position: relative;
+    width: 250%;
+    top: -60px;
+    left: -50px;
+    z-index: 20;
+}
+
+.heraInfo2 p {
+    font-size: 0.85rem;
+    color: #5c0c6d;
+    background-color: #c8a2c8;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+.posInfo1 {
+    grid-area: top1;
+    position: relative;
+    width: 230%;
+    top: -50px;
+    left: -20px;
+    z-index: 20;
+    background-color: #134b88;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.posInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #99c4ef;
+}
+
+.posInfo1 p {
+    font-size: 0.85rem;
+    color: #99c4ef;
+}
+
+.posInfo2 {
+    grid-area: top5;
+    position: relative;
+    width: 200%;
+    top: -20px;
+    left: 0px;
+    z-index: 20;
+}
+
+.posInfo2 p {
+    font-size: 0.85rem;
+    color: #99c4ef;
+    background-color: #134b88;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.demInfo1 {
+    grid-area: top1;
+    position: relative;
+    width: 230%;
+    top: -20px;
+    left: -20px;
+    z-index: 20;
+    background-color: #a4cd89;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.demInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #344922;
+}
+
+.demInfo1 p {
+    font-size: 0.85rem;
+    color: #344922;
+}
+
+.demInfo2 {
+    grid-area: top5;
+    position: relative;
+    width: 200%;
+    top: 40px;
+    left: 0px;
+    z-index: 20;
+}
+
+.demInfo2 p {
+    font-size: 0.85rem;
+    color: #344922;
+    background-color: #a4cd89;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+.hestiaInfo1 {
+    grid-area: top1;
+    position: relative;
+    width: 230%;
+    top: -20px;
+    left: -20px;
+    z-index: 20;
+    background-color: #ffc864;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.hestiaInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #836d3c;
+}
+
+.hestiaInfo1 p {
+    font-size: 0.85rem;
+    color: #836d3c;
+}
+
+.hestiaInfo2 {
+    grid-area: top5;
+    position: relative;
+    width: 200%;
+    top: 40px;
+    left: 0px;
+    z-index: 20;
+}
+
+.hestiaInfo2 p {
+    font-size: 0.85rem;
+    color: #836d3c;
+    background-color: #ffc864;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+.hadesInfo1 {
+    grid-area: top1;
+    position: relative;
+    width: 230%;
+    top: -90px;
+    left: -20px;
+    z-index: 20;
+    background-color: #bc5163;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.hadesInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #5e1816;
+}
+
+.hadesInfo1 p {
+    font-size: 0.85rem;
+    color: #5e1816;
+}
+
+.hadesInfo2 {
+    grid-area: top5;
+    position: relative;
+    width: 200%;
+    top: 20px;
+    left: -20px;
+    z-index: 20;
+}
+
+.hadesInfo2 p {
+    font-size: 0.85rem;
+    color: #5e1816;
+    background-color: #bc5163;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.hadesInfo3 {
+    grid-area: top5;
+    width: 200%;
+    position: relative;
+    left: -10px;
+    top: 90px;
+}
+
+.hephInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #8f8a87;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.hephInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #343839;
+}
+
+.hephInfo1 p {
+    font-size: 0.85rem;
+    color: #343839;
+}
+
+.aresInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #bc5449;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.aresInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #600f0b;
+}
+
+.aresInfo1 p {
+    font-size: 0.85rem;
+    color: #600f0b;
+}
+
+.aphInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #fc94ad;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.aphInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #e11584;
+}
+
+.aphInfo1 p {
+    font-size: 0.85rem;
+    color: #e11584;
+}
+
+.apolloInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #ffc30b;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.apolloInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #cd7722;
+}
+
+.apolloInfo1 p {
+    font-size: 0.85rem;
+    color: #cd7722;
+}
+
+.artemisInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #adadc7;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.artemisInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #311432;
+}
+
+.artemisInfo1 p {
+    font-size: 0.85rem;
+    color: #311432;
+}
+
+.persInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #a3c474;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.persInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #043927;
+}
+
+.persInfo1 p {
+    font-size: 0.85rem;
+    color: #043927;
+}
+
+.athenaInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #52b2bf;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.athenaInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #051093;
+}
+
+.athenaInfo1 p {
+    font-size: 0.85rem;
+    color: #051093;
+}
+
+.dionInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #7a4a88;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.dionInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #2c051a;
+}
+
+.dionInfo1 p {
+    font-size: 0.85rem;
+    color: #2c051a;
+}
+
+.hermesInfo1 {
+    grid-area: mid3;
+    position: relative;
+    width: 400%;
+    top: -300px;
+    z-index: 20;
+    background-color: #fca172;
+    border-radius: 35px;
+    margin-top: 20px;
+    margin-bottom: 130px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.hermesInfo1 h2 {
+    text-align: center;
+    padding-left: 5px;
+    color: #dd561c;
+}
+
+.hermesInfo1 p {
+    font-size: 0.85rem;
+    color: #dd561c;
+}
+
+.famNextPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.famNextPage p {
+    width: 20%;
+    background-color: #0054a4;
+    padding: 10px 150px 10px 10px;
+    /*    border: #0054a4 10px solid;*/
+    border-radius: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative;
+    left: 150px;
+    color: #ffffff;
+    top: -250px;
+}
+
+.famNextPage img {
+    width: 20%;
+    z-index: 20;
+    position: relative;
+    top: -250px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+#wrapper3 {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 200px;
+    overflow: hidden;
+}
+
+.creaturesTitle img {
+    width: 30%;
+    margin-left: 35%;
+}
+
+.downArrow {
+    width: 5%;
+    position: relative;
+    top: 200px;
+    left: 47%;
+}
+
+.downArrow p {
+    font-size: 50px;
+    border: rgba(255, 255, 255, 0.7) solid 5px;
+    border-radius: 50%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 20px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+}
+
+.centaur {
+    position: relative;
+    width: 20%;
+    margin-left: 21%;
+    top: 350px;
+}
+
+.centaurtitle {
+    position: relative;
+    margin-left: 43%;
+}
+
+.centaurabout {
+    width: 36%;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 15px;
+    position: relative;
+    margin-left: 43%;
+}
+
+.pegasus {
+    position: relative;
+    width: 20%;
+    margin-left: 24%;
+    top: 300px;
+
+}
+
+.pegasusTitle {
+    position: relative;
+    margin-left: 46%;
+}
+
+.pegasusAbout {
+    width: 30%;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 15px;
+    position: relative;
+    margin-left: 46%;
+}
+
+.cerberus {
+    position: relative;
+    width: 30%;
+    margin-left: 37%;
+}
+
+.cerberusTitle {
+    position: relative;
+    margin-left: 37%;
+    top: 70px;
+    padding-top: 200px;
+}
+
+.cerberusAbout {
+    width: 30%;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 15px;
+    position: relative;
+    margin-left: 35%;
+}
+
+.sphinx {
+    position: relative;
+    width: 20%;
+    margin-left: 40%;
+    top: 400px;
+}
+
+.sphinxTitle {
+    position: relative;
+    text-align: center;
+    top: 40px;
+}
+
+.sphinxAbout {
+    width: 50%;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 15px;
+    position: relative;
+    top: 250px;
+    margin-left: 25%;
+}
+
+.hydra {
+    position: relative;
+    width: 35%;
+    margin-left: 35%;
+    top: 150px;
+}
+
+.hydraTitle {
+    position: relative;
+    margin-left: 42%;
+    padding-top: 300px;
+    top: 140px;
+}
+
+.hydraAbout {
+    width: 30%;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 15px;
+    position: relative;
+    margin-left: 35%;
+    top: 170px;
+}
+
+.minotaur {
+    position: relative;
+    width: 20%;
+    margin-left: 26%;
+    top: 350px;
+}
+
+.minotaurTitle {
+    position: relative;
+    margin-left: 47%;
+    top: -60px;
+}
+
+.minotaurAbout {
+    width: 36%;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 15px;
+    position: relative;
+    margin-left: 47%;
+    top: -100px;
+}
+
+
+.chimera {
+    width: 30%;
+    position: relative;
+    margin-left: 52%;
+    top: 350px;
+}
+
+.chimeraTitle {
+    position: relative;
+    margin-left: 25%;
+    top: 40px;
+}
+
+.chimeraAbout {
+    width: 30%;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 15px;
+    position: relative;
+    margin-left: 18%;
+}
+
+.creaNextPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.creaNextPage p {
+    width: 20%;
+    background-color: #0054a4;
+    padding: 10px 150px 10px 10px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative;
+    left: 140px;
+    color: #ffffff;
+    top: -80px;
+}
+
+.creaNextPage img {
+    width: 20%;
+    z-index: 20;
+    position: relative;
+    top: -80px;
+    cursor: pointer;
+}
+
+#wrapper5 {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.starsTitle img {
+    margin-left: 35%;
+}
+
+.switch {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 34px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2196F3;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: yellow;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    background-color: #191970;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    box-shadow: -5px -5px 0 0 white inset;
+}
+
+input:checked + .slider {
+    background-color: #191970;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#myCheckbox {
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.best {
+    display: none;
+}
+
+.vineLeft2 {
+    position: fixed;
+    z-index: -1;
+    top: -10px;
+    left: 20px;
+    width: 10%
+}
+
+.vineRight2 {
+    position: fixed;
+    z-index: -1;
+    top: -10px;
+    right: 20px;
+    width: 10%;
+    transform: scaleX(-1);
+}
+
+
+#starsIntro {
+    width: 50%;
+    margin-left: 25%;
+}
+
+#starsIntro p {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    line-height: 23px;
+}
+
+#main {
+    position: relative;
+}
+
+.desktopStars {
+    visibility: visible;
+}
+
+.starsMobile {
+    visibility: hidden;
+}
+
+#andromeda {
+    width: 10%;
+    position: absolute;
+    top: 60%;
+    left: 13%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#andromeda:hover {
+    transform: scale(1.1)
+}
+
+#mobAndromeda {
+    width: 10%;
+    position: absolute;
+    top: 60%;
+    left: 13%;
+    z-index: 10;
+}
+
+#aquarius {
+    width: 6%;
+    position: absolute;
+    top: 70%;
+    left: 36%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#aquarius:hover {
+    transform: scale(1.1)
+}
+
+#mobAquarius {
+    width: 6%;
+    position: absolute;
+    top: 70%;
+    left: 36%;
+    z-index: 10;
+}
+
+#aquila {
+    width: 5%;
+    position: absolute;
+    top: 48%;
+    left: 36%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#aquila:hover {
+    transform: scale(1.1)
+}
+
+#mobAquila {
+    width: 5%;
+    position: absolute;
+    top: 48%;
+    left: 36%;
+    z-index: 10;
+}
+
+#aries {
+    width: 3%;
+    position: absolute;
+    top: 72%;
+    left: 16%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#aries:hover {
+    transform: scale(1.1)
+}
+
+#mobAries {
+    width: 3%;
+    position: absolute;
+    top: 72%;
+    left: 16%;
+    z-index: 10;
+}
+
+#auriga {
+    width: 4%;
+    position: absolute;
+    top: 40%;
+    left: 3%;
+    z-index: 10;
+}
+
+#bootes {
+    width: 10%;
+    position: absolute;
+    top: 14%;
+    left: 40%;
+    z-index: 10;
+}
+
+#cancer {
+    width: 6%;
+    position: absolute;
+    top: 26%;
+    left: 84%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#cancer:hover {
+    transform: scale(1.1)
+}
+
+#mobCancer {
+    width: 6%;
+    position: absolute;
+    top: 26%;
+    left: 84%;
+    z-index: 10;
+}
+
+#capricornus {
+    width: 7%;
+    position: absolute;
+    top: 63.5%;
+    left: 41.5%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#capricornus:hover {
+    transform: scale(1.1)
+}
+
+#mobCapricornus {
+    width: 7%;
+    position: absolute;
+    top: 63.5%;
+    left: 41.5%;
+    z-index: 10;
+}
+
+#cassiopeia {
+    width: 5%;
+    position: absolute;
+    top: 49%;
+    left: 13.5%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#cassiopeia:hover {
+    transform: scale(1.1)
+}
+
+#mobCassiopeia {
+    width: 5%;
+    position: absolute;
+    top: 49%;
+    left: 13.5%;
+    z-index: 10;
+}
+
+#cepheus {
+    width: 8%;
+    position: absolute;
+    top: 40%;
+    left: 17%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#cepheus:hover {
+    transform: scale(1.1)
+}
+
+#mobCepheus {
+    width: 8%;
+    position: absolute;
+    top: 40%;
+    left: 17%;
+    z-index: 10;
+}
+
+#coronaBorealis {
+    width: 6%;
+    position: absolute;
+    top: 21%;
+    left: 36%;
+    z-index: 12;
+    cursor: pointer;
+}
+
+#coronaBorealis:hover {
+    transform: scale(1.1)
+}
+
+#mobCoronaBorealis {
+    width: 6%;
+    position: absolute;
+    top: 21%;
+    left: 36%;
+    z-index: 12;
+}
+
+#cygnus {
+    width: 7%;
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#cygnus:hover {
+    transform: scale(1.1)
+}
+
+#mobCygnus {
+    width: 7%;
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#delphinus {
+    width: 5%;
+    position: absolute;
+    top: 58%;
+    left: 31%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#delphinus:hover {
+    transform: scale(1.1)
+}
+
+#mobDelphinus {
+    width: 5%;
+    position: absolute;
+    top: 58%;
+    left: 31%;
+    z-index: 10;
+}
+
+#draco {
+    width: 9%;
+    position: absolute;
+    top: 23%;
+    left: 23%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#draco:hover {
+    transform: scale(1.1)
+}
+
+#mobDraco {
+    width: 9%;
+    position: absolute;
+    top: 23%;
+    left: 23%;
+    z-index: 10;
+}
+
+#gemini {
+    width: 8%;
+    position: absolute;
+    top: 32%;
+    left: 89%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#gemini:hover {
+    transform: scale(1.1)
+}
+
+#mobGemini {
+    width: 8%;
+    position: absolute;
+    top: 32%;
+    left: 89%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#hercules {
+    width: 6.5%;
+    position: absolute;
+    top: 27%;
+    left: 34.5%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#hercules:hover {
+    transform: scale(1.1)
+}
+
+#mobHercules {
+    width: 6.5%;
+    position: absolute;
+    top: 27%;
+    left: 34.5%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#leo {
+    width: 20%;
+    position: absolute;
+    top: 14%;
+    left: 61%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#leo:hover {
+    transform: scale(1.1)
+}
+
+#mobLeo {
+    width: 20%;
+    position: absolute;
+    top: 14%;
+    left: 61%;
+    z-index: 10;
+}
+
+#libra {
+    width: 5%;
+    position: absolute;
+    top: 30%;
+    left: 51%;
+    z-index: 10;
+}
+
+#lyra {
+    width: 3.5%;
+    position: absolute;
+    top: 40%;
+    left: 31%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#lyra:hover {
+    transform: scale(1.1)
+}
+
+#mobLyra {
+    width: 3.5%;
+    position: absolute;
+    top: 40%;
+    left: 31%;
+    z-index: 10;
+}
+
+#orion {
+    width: 7%;
+    position: absolute;
+    top: 56%;
+    left: 87.5%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#orion:hover {
+    transform: scale(1.1)
+}
+
+#mobOrion {
+    width: 7%;
+    position: absolute;
+    top: 56%;
+    left: 87.5%;
+    z-index: 10;
+}
+
+#pegasuscon {
+    width: 11%;
+    position: absolute;
+    top: 64.25%;
+    left: 22.25%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#pegasuscon:hover {
+    transform: scale(1.1)
+}
+
+#mobPegasuscon {
+    width: 11%;
+    position: absolute;
+    top: 64.25%;
+    left: 22.25%;
+    z-index: 10;
+}
+
+#perseus {
+    width: 4.5%;
+    position: absolute;
+    top: 50%;
+    left: 6.5%;
+    z-index: 11;
+    cursor: pointer;
+}
+
+#perseus:hover {
+    transform: scale(1.1)
+}
+
+#mobPerseus {
+    width: 4.5%;
+    position: absolute;
+    top: 50%;
+    left: 6.5%;
+    z-index: 11;
+}
+
+#pisces {
+    width: 12%;
+    position: absolute;
+    top: 77%;
+    left: 21%;
+    z-index: 12;
+    cursor: pointer;
+}
+
+#pisces:hover {
+    transform: scale(1.1)
+}
+
+#mobPisces {
+    width: 12%;
+    position: absolute;
+    top: 77%;
+    left: 21%;
+    z-index: 12;
+    cursor: pointer;
+}
+
+#sagittarius {
+    width: 10%;
+    position: absolute;
+    top: 52%;
+    left: 41%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#sagittarius:hover {
+    transform: scale(1.1)
+}
+
+#mobSagittarius {
+    width: 10%;
+    position: absolute;
+    top: 52%;
+    left: 41%;
+    z-index: 10;
+}
+
+#scorpius {
+    width: 5%;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#scorpius:hover {
+    transform: scale(1.1)
+}
+
+#mobScorpius {
+    width: 5%;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    z-index: 10;
+}
+
+#taurusRight {
+    width: 5%;
+    position: absolute;
+    top: 55%;
+    left: 92.5%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#taurusRight:hover {
+    transform: scale(1.1)
+}
+
+#mobTaurusRight {
+    width: 5%;
+    position: absolute;
+    top: 55%;
+    left: 92.5%;
+    z-index: 10;
+}
+
+#taurusLeft {
+    width: 7%;
+    position: absolute;
+    top: 51%;
+    left: 2%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#taurusLeft:hover {
+    transform: scale(1.1)
+}
+
+#mobTaurusLeft {
+    width: 7%;
+    position: absolute;
+    top: 51%;
+    left: 2%;
+    z-index: 10;
+}
+
+#ursaMajor {
+    width: 21%;
+    position: absolute;
+    top: 13%;
+    left: 16%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#ursaMajor:hover {
+    transform: scale(1.1)
+}
+
+#mobUrsaMajor {
+    width: 21%;
+    position: absolute;
+    top: 13%;
+    left: 16%;
+    z-index: 10;
+}
+
+#ursaMinor {
+    width: 9%;
+    position: absolute;
+    top: 28%;
+    left: 18%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#ursaMinor:hover {
+    transform: scale(1.1)
+}
+
+#mobUrsaMinor {
+    width: 9%;
+    position: absolute;
+    top: 28%;
+    left: 18%;
+    z-index: 10;
+}
+
+#virgo {
+    width: 12%;
+    position: absolute;
+    top: 15%;
+    left: 52%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#virgo:hover {
+    transform: scale(1.1)
+}
+
+#mobVirgo {
+    width: 12%;
+    position: absolute;
+    top: 15%;
+    left: 52%;
+    z-index: 10;
+}
+
+#eridanus {
+    width: 24%;
+    position: absolute;
+    top: 69%;
+    left: 63%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#eridanus:hover {
+    transform: scale(1.1)
+}
+
+#mobEridanus {
+    width: 24%;
+    position: absolute;
+    top: 69%;
+    left: 63%;
+    z-index: 10;
+}
+
+#cetus {
+    width: 25%;
+    position: absolute;
+    top: 77.5%;
+    left: 16%;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#cetus:hover {
+    transform: scale(1.1)
+}
+
+#mobCetus {
+    width: 25%;
+    position: absolute;
+    top: 77.5%;
+    left: 16%;
+    z-index: 10;
+}
+
+#centaurus {
+    width: 8%;
+    position: absolute;
+    top: 34%;
+    left: 62%;
+    z-index: 10;
+}
+
+#mobCentaurus {
+    width: 8%;
+    position: absolute;
+    top: 34%;
+    left: 62%;
+    z-index: 10;
+}
+
+#canisMajor {
+    width: 5%;
+    position: absolute;
+    top: 54%;
+    left: 83%;
+    z-index: 10;
+}
+
+#mobCanisMajor {
+    width: 5%;
+    position: absolute;
+    top: 54%;
+    left: 83%;
+    z-index: 10;
+}
+
+#canisMinor {
+    width: 5%;
+    position: absolute;
+    top: 40%;
+    left: 85%;
+    z-index: 10;
+}
+
+#mobCanisMinor {
+    width: 5%;
+    position: absolute;
+    top: 40%;
+    left: 85%;
+    z-index: 10;
+}
+
+.andromedainfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.andromedainfo img {
+    margin-left: 37%;
+    padding-top: 30px;
+    width: 26%;
+}
+
+.andromedainfo p {
+    padding-bottom: 20px;
+}
+
+.aquariusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.aquariusinfo img {
+    width: 16%;
+    margin-left: 42%;
+    padding-top: 30px;
+}
+
+.aquariusinfo p {
+    padding-bottom: 20px;
+}
+
+.aquilainfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.aquilainfo img {
+    margin-left: 43%;
+    padding-top: 30px;
+    width: 14%
+}
+
+.aquilainfo p {
+    padding-bottom: 20px;
+}
+
+.ariesinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.ariesinfo img {
+    width: 10%;
+    margin-left: 45%;
+    padding-top: 30px;
+}
+
+.ariesinfo p {
+    padding-bottom: 20px;
+}
+
+.cancerinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.cancerinfo img {
+    margin-left: 42%;
+    padding-top: 30px;
+    width: 16%;
+}
+
+.cancerinfo p {
+    padding-bottom: 20px;
+}
+
+.capricornusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.capricornusinfo img {
+    margin-left: 40%;
+    padding-top: 30px;
+    width: 20%;
+}
+
+.capricornusinfo p {
+    padding-bottom: 20px;
+}
+
+.cassiopeiainfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.cassiopeiainfo img {
+    margin-left: 43%;
+    padding-top: 30px;
+    width: 14%;
+}
+
+.cassiopeiainfo p {
+    padding-bottom: 20px;
+}
+
+.cepheusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.cepheusinfo img {
+    margin-left: 40%;
+    padding-top: 30px;
+    width: 20%;
+}
+
+.cepheusinfo p {
+    padding-bottom: 20px;
+}
+
+.cbinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.cbinfo img {
+    margin-left: 42%;
+    padding-top: 40px;
+    width: 16%;
+    padding-bottom: 20px;
+}
+
+.cbinfo p {
+    padding-bottom: 20px;
+}
+
+.cygnusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.cygnusinfo img {
+    margin-left: 42%;
+    padding-top: 30px;
+    width: 16%;
+}
+
+.cygnusinfo p {
+    padding-bottom: 20px;
+}
+
+.delphinusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.delphinusinfo img {
+    margin-left: 44%;
+    padding-top: 30px;
+    width: 12%;
+}
+
+.delphinusinfo p {
+    padding-bottom: 20px;
+}
+
+.dracoinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.dracoinfo img {
+    margin-left: 40%;
+    padding-top: 30px;
+    width: 20%;
+}
+
+.dracoinfo p {
+    padding-bottom: 20px;
+}
+
+.geminiinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.geminiinfo img {
+    margin-left: 42%;
+    padding-top: 30px;
+    width: 16%;
+}
+
+.geminiinfo p {
+    padding-bottom: 20px;
+}
+
+.herculesinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.herculesinfo img {
+    margin-left: 42%;
+    padding-top: 30px;
+    width: 16%
+}
+
+.herculesinfo p {
+    padding-bottom: 20px;
+}
+
+.leoinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.leoinfo img {
+    margin-left: 30%;
+    padding-top: 30px;
+    width: 46%
+}
+
+.leoinfo p {
+    padding-bottom: 20px;
+}
+
+.lyrainfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.lyrainfo img {
+    margin-left: 46%;
+    padding-top: 30px;
+    width: 8%;
+}
+
+.lyrainfo p {
+    padding-bottom: 20px;
+}
+
+.orioninfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.orioninfo img {
+    margin-left: 43%;
+    padding-top: 30px;
+    width: 14%;
+}
+
+.orioninfo p {
+    padding-bottom: 20px;
+}
+
+.pegasusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.pegasusinfo img {
+    margin-left: 36%;
+    padding-top: 30px;
+    width: 28%;
+}
+
+.pegasusinfo p {
+    padding-bottom: 20px;
+}
+
+.perseusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.perseusinfo img {
+    margin-left: 44%;
+    padding-top: 30px;
+    width: 12%;
+}
+
+.perseusinfo p {
+    padding-bottom: 20px;
+}
+
+.piscesinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.piscesinfo img {
+    margin-left: 35%;
+    padding-top: 30px;
+    width: 30%;
+}
+
+.piscesinfo p {
+    padding-bottom: 20px;
+}
+
+.sagittariusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.sagittariusinfo img {
+    margin-left: 38%;
+    padding-top: 30px;
+    width: 24%
+}
+
+.sagittariusinfo p {
+    padding-bottom: 20px;
+}
+
+.scorpiusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.scorpiusinfo img {
+    margin-left: 44%;
+    padding-top: 30px;
+    width: 12%
+}
+
+.scorpiusinfo p {
+    padding-bottom: 20px;
+}
+
+.taurusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.taurusinfo img {
+    margin-left: 35%;
+    padding-top: 30px;
+    width: 30%
+}
+
+.taurusinfo p {
+    padding-bottom: 20px;
+}
+
+.ursamajorinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.ursamajorinfo img {
+    margin-left: 25%;
+    padding-top: 30px;
+    width: 50%
+}
+
+.ursamajorinfo p {
+    padding-bottom: 20px;
+}
+
+.ursaminorinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.ursaminorinfo img {
+    margin-left: 37%;
+    padding-top: 30px;
+    width: 26%
+}
+
+.ursaminorinfo p {
+    padding-bottom: 20px;
+}
+
+.eridanusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.eridanusinfo img {
+    margin-left: 20%;
+    padding-top: 30px;
+    width: 60%
+}
+
+.eridanusinfo p {
+    padding-bottom: 20px;
+}
+
+.cetusinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.cetusinfo img {
+    margin-left: 20%;
+    padding-top: 30px;
+    width: 60%
+}
+
+.cetusinfo p {
+    padding-bottom: 20px;
+}
+
+.virgoinfo {
+    position: absolute;
+    top: 60%;
+    z-index: 20;
+    margin-left: 17%;
+    width: 60%;
+    padding-right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.virgoinfo img {
+    margin-left: 35%;
+    padding-top: 30px;
+    width: 30%
+}
+
+.virgoinfo p {
+    padding-bottom: 20px;
+}
+
+.starsinfo {
+    display: none;
+}
+
+.stars #wrapper5 p {
+    padding: 0px;
+}
+
+.close {
+    color: #ffffff;
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+    z-index: 30;
+}
+
+.close:hover,
+.close:focus {
+    color: #fcd20b;
+    text-decoration: none;
+    padding-right: 5px;
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition-duration: 1s;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+p.creatures {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 25px;
+}
+
+p.stars {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    line-height: 20px;
+    padding-left: 5%;
+    margin-left: 20px;
+    padding-right: 5%;
+    background-color: none;
+    top: 50%;
+    color: #ffffff;
+}
+
+h1 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 4rem;
+    letter-spacing: 4px;
+}
+
+h2 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2rem;
+}
+
+h1.centaurtxt {
+    color: #44040c;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h1.pegasusTxt {
+    color: #4788ba;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-shadow: 2px 2px 1px white;
+}
+
+h1.sphinxTxt {
+    color: #b58837;
+}
+
+h1.hydraTxt {
+    color: #c43700;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h1.minotaurTxt {
+    color: #45140f;
+}
+
+h1.chimeraTxt {
+    color: #4c3f35;
+}
+
+@media only screen and (min-width: 801px) {
+
+    .mobKids p {
+        display: none;
+    }
+
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 800px) {
+
+    /*    home page*/
+
+    #wrapper1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "title"
+            "row2"
+            "row3"
+            "row4"
+    }
+
+    .world {
+        grid-area: row2;
+        top: 0;
+        margin-top: 20px;
+    }
+
+    .world img {
+        top: 0;
+        margin-left: 2.5%;
+    }
+
+    .mobEnter {
+        grid-area: row3;
+        position: relative;
+        top: 0px;
+        margin-top: 30px;
+        display: block;
+    }
+
+    .mobEnter p {
+        color: white;
+        font-size: 1rem;
+        background-color: #a31127;
+        border-radius: 50px;
+        text-align: center;
+        padding: 5px 5px 5px 5px;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .titleCloud {
+        display: grid;
+    }
+
+    .familyCloud {
+        grid-area: row2;
+        top: 0;
+        margin-top: 5%;
+    }
+
+    .familyCloud img {
+        margin-top: 0;
+        margin-left: 10%;
+        padding-top: 10px;
+        width: 80%;
+    }
+
+    .starsCloud {
+        grid-area: row3;
+        top: 0;
+        left: 0;
+    }
+
+    .starsCloud img {
+        margin-top: 0;
+        margin-left: 10%;
+        padding-top: 10px;
+        width: 80%;
+    }
+
+    .creaturesCloud {
+        grid-area: row4;
+        top: 0;
+        left: 0;
+    }
+
+    .creaturesCloud img {
+        margin-left: 10%;
+        padding-top: 10px;
+        width: 80%;
+    }
+
+    /*    meet the family*/
+
+    #wrapper2 {
+        overflow: hidden;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "top1 top1 top2 top2"
+            "top3 top3 top4 top4"
+            "top5 top5 top6 top6"
+            "kids kids kids kids"
+            "mid1 mid1 mid2 mid2"
+            "mid3 mid3 mid4 mid4"
+            "mid5 mid5 mid6 mid6"
+            "mid7 mid7 mid8 mid8"
+            ".    mid9 mid9    ."
+    }
+
+    .mobFamilyTitle {
+        display: block;
+    }
+
+    .mobFamilyTitle img {
+        width: 70%;
+        margin-left: 15%;
+    }
+
+    .familyTitle {
+        visibility: hidden
+    }
+
+    .speechBubble {
+        display: none;
+    }
+
+    .back {
+        display: none;
+    }
+
+    .close {
+        display: none;
+    }
+
+    .gStand {
+        display: none;
+    }
+
+    .gTrophy {
+        display: none;
+    }
+
+    .mobTrophy {
+        visibility: visible;
+    }
+
+    .mobZeusTrophy {
+        grid-area: top1;
+        position: relative;
+        left: 10%;
+    }
+
+    .zeusInfo1 {
+        display: none;
+    }
+
+    .zeusInfo2 {
+        display: none;
+    }
+
+    .zeusInfo3 {
+        display: none;
+    }
+
+    .zeusInfo4 {
+        display: none;
+    }
+
+    .zeusInfo5 {
+        display: none;
+    }
+
+    .zeusInfo6 {
+        grid-area: top1;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .mobHeraTrophy {
+        grid-area: top2;
+        position: relative;
+        left: 10%;
+    }
+
+    .heraInfo1 {
+        grid-area: top1;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .heraInfo2 {
+        display: none;
+    }
+
+    .mobPosTrophy {
+        grid-area: top3;
+        position: relative;
+        left: 10%;
+    }
+
+    .posInfo1 {
+        grid-area: top3;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .posInfo2 {
+        display: none;
+    }
+
+    .mobHadesTrophy {
+        grid-area: top4;
+        position: relative;
+        left: 10%;
+    }
+
+    .hadesInfo1 {
+        grid-area: top3;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .hadesInfo2 {
+        display: none;
+    }
+
+    .hadesInfo3 {
+        display: none;
+    }
+
+    .mobDemTrophy {
+        grid-area: top5;
+        position: relative;
+        left: 10%;
+    }
+
+    .demInfo1 {
+        grid-area: top5;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .demInfo2 {
+        display: none;
+    }
+
+    .mobHestiaTrophy {
+        grid-area: top6;
+        position: relative;
+        left: 10%;
+    }
+
+    .hestiaInfo1 {
+        grid-area: top5;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .hestiaInfo2 {
+        display: none;
+    }
+
+    .gKids {
+        display: none;
+    }
+
+    .heph {
+        display: none;
+    }
+
+    .ares {
+        display: none;
+    }
+
+    .aphrodite {
+        display: none;
+    }
+
+    .apollo {
+        display: none;
+    }
+
+    .artemis {
+        display: none;
+    }
+
+    .athena {
+        display: none;
+    }
+
+    .pers {
+        display: none;
+    }
+
+    .dion {
+        display: none;
+    }
+
+    .hermes {
+        display: none;
+    }
+
+    .hephTrophy {
+        grid-area: mid1;
+        width: 98%;
+        left: 10%;
+        top: 0;
+
+    }
+
+    .hephInfo1 {
+        grid-area: mid1;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .aresTrophy {
+        grid-area: mid2;
+        width: 98%;
+        left: 6%;
+        top: 0;
+    }
+
+    .aresInfo1 {
+        grid-area: mid1;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .apolloTrophy {
+        grid-area: mid3;
+        width: 98%;
+        left: 10%;
+        top: 0;
+    }
+
+    .apolloInfo1 {
+        grid-area: mid3;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .artemisTrophy {
+        grid-area: mid4;
+        width: 98%;
+        left: 6%;
+        top: 0;
+    }
+
+    .artemisInfo1 {
+        grid-area: mid3;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .persTrophy {
+        grid-area: mid5;
+        width: 98%;
+        left: 10%;
+        top: 0;
+    }
+
+    .persInfo1 {
+        grid-area: mid5;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .athenaTrophy {
+        grid-area: mid6;
+        width: 98%;
+        left: 6%;
+        top: 0;
+    }
+
+    .athenaInfo1 {
+        grid-area: mid5;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .dionTrophy {
+        grid-area: mid7;
+        width: 98%;
+        left: 10%;
+        top: 0;
+    }
+
+    .dionInfo1 {
+        grid-area: mid7;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .hermesTrophy {
+        grid-area: mid8;
+        width: 98%;
+        left: 6%;
+        top: 0;
+    }
+
+    .hermesInfo1 {
+        grid-area: mid7;
+        width: 180%;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .aphTrophy {
+        grid-area: mid9;
+        width: 98%;
+        left: 6%;
+        top: 0;
+    }
+
+    .aphInfo1 {
+        grid-area: mid9;
+        width: 180%;
+        top: 0;
+        left: -40%;
+        margin-bottom: 0;
+    }
+
+    .kids {
+        display: none
+    }
+
+    .mobKids {
+        display: block;
+        grid-area: kids;
+        background-color: #0054a4;
+        text-align: center;
+        border-radius: 50px;
+        /*    padding: 5px 5px 5px 5px;*/
+        margin: 0px;
+        margin-top: 30px;
+        margin: 30px;
+        cursor: pointer;
+    }
+
+    .mobKids p {
+        color: white;
+        font-size: 0.9rem;
+    }
+
+    .nextPage {
+        display: none;
+    }
+
+    /*    mythical creatures*/
+
+    .creaturesTitle img {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .downArrow {
+        display: none;
+    }
+
+    h1.centaurtxt {
+        text-align: center;
+    }
+
+    h1.pegasusTxt {
+        text-align: center;
+    }
+
+    h1.cerberusTxt {
+        text-align: center;
+    }
+
+    h1.sphinxTxt {
+        text-align: center;
+    }
+
+    h1.hydraTxt {
+        text-align: center;
+    }
+
+    h1.minotaurTxt {
+        text-align: center;
+    }
+
+    h1.chimeraTxt {
+        text-align: center;
+    }
+
+    .centaur {
+        width: 60%;
+        margin-left: 20%;
+        top: 500px;
+    }
+
+    .centaurtitle {
+        display: block;
+        margin: 0 auto;
+        top: 140px;
+    }
+
+    .centaurabout {
+        width: 80%;
+        margin-left: 5%;
+        top: 440px;
+    }
+
+    .pegasus {
+        width: 60%;
+        margin-left: 20%;
+        top: 630px;
+    }
+
+    .pegasusTitle {
+        display: block;
+        margin: 0 auto;
+        top: 260px;
+    }
+
+    .pegasusAbout {
+        width: 80%;
+        margin-left: 5%;
+        top: 560px;
+    }
+
+    .cerberus {
+        width: 80%;
+        margin-left: 12%;
+        top: 340px;
+    }
+
+    .cerberusTitle {
+        display: block;
+        margin: 0 auto;
+        top: 390px;
+    }
+
+    .cerberusAbout {
+        width: 80%;
+        margin-left: 5%;
+        top: 360px;
+    }
+
+    .sphinx {
+        width: 60%;
+        margin-left: 20%;
+        top: 540px;
+    }
+
+    .sphinxTitle {
+        display: block;
+        margin: 0 auto;
+        top: 180px;
+    }
+
+    .sphinxAbout {
+        width: 80%;
+        margin-left: 5%;
+        top: 400px;
+    }
+
+    .hydra {
+        width: 90%;
+        margin-left: 12%;
+        top: 220px;
+    }
+
+    .hydraTitle {
+        display: block;
+        margin: 0 auto;
+        top: 200px;
+    }
+
+    .hydraAbout {
+        width: 80%;
+        margin-left: 5%;
+        top: 230px;
+    }
+
+    .minotaur {
+        width: 50%;
+        margin-left: 25%;
+        top: 440px;
+    }
+
+    .minotaurTitle {
+        display: block;
+        margin: 0 auto;
+        top: 20px;
+    }
+
+    .minotaurAbout {
+        width: 80%;
+        margin-left: 5%;
+        top: 290px;
+    }
+
+    .chimera {
+        width: 90%;
+        margin-left: 5%;
+        top: 470px;
+    }
+
+    .chimeraTitle {
+        display: block;
+        margin: 0 auto;
+        top: 120px;
+    }
+
+    .chimeraAbout {
+        width: 80%;
+        margin-left: 5%;
+        top: 330px;
+        margin-bottom: 300px;
+    }
+
+    .creaNextPage {
+        display: none;
+    }
+
+    /*    stars*/
+
+    .desktopStars {
+        visibility: hidden;
+    }
+
+    .starsMobile {
+        visibility: visible;
+    }
+
+    #wrapper6 {
+        margin: 0 auto;
+    }
+
+    .vineLeft2 {
+        visibility: hidden;
+    }
+
+    .vineRight2 {
+        visibility: hidden;
+    }
+
+
+    .starsTitle img {
+        width: 250px;
+        display: block;
+        margin: 0 auto;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #starsIntro {
+        width: 80%;
+        margin-left: 10%
+    }
+
+    .mobClose {
+        color: #ffffff;
+        float: right;
+        font-size: 20px;
+        font-weight: bold;
+        z-index: 30;
+        padding-right: 5px;
+        display: block;
+    }
+
+
+    .best {
+        color: #ffffff;
+        text-align: right;
+        font-size: 1rem;
+    }
+
+    a {
+        color: #fbb03b;
+        text-decoration: none;
+        font-weight: bolder;
+    }
+
+    p.stars {
+        font-size: 0.7rem;
+        line-height: 20px;
+        padding-left: 0px;
+        padding-right: 1%;
+        text-align: center;
+    }
+
+    .andromedainfo {
+        top: 50%;
+    }
+
+    .aquilainfo {
+        top: 50%;
+
+    }
+
+    .ariesinfo {
+        top: 50%;
+    }
+
+    .cancerinfo {
+        top: 50%;
+    }
+
+    .capricornusinfo {
+        top: 50%;
+    }
+
+    .cassiopeiainfo {
+        top: 50%;
+    }
+
+    .cepheusinfo {
+        top: 50%;
+    }
+
+    .cbinfo {
+        top: 50%;
+    }
+
+    .cygnusinfo {
+        top: 50%;
+    }
+
+    .delphinusinfo {
+        top: 50%;
+    }
+
+    .dracoinfo {
+        top: 50%;
+    }
+
+    .geminiinfo {
+        top: 50%;
+    }
+
+    .herculesinfo {
+        top: 50%;
+    }
+
+    .leoinfo {
+        top: 50%;
+    }
+
+    .lyrainfo {
+        top: 50%;
+    }
+
+    .orioninfo {
+        top: 50%;
+    }
+
+    .pegasusinfo {
+        top: 50%;
+    }
+
+    .perseusinfo {
+        top: 50%;
+    }
+
+    .piscesinfo {
+        top: 50%;
+    }
+
+    .sagittariusinfo {
+        top: 50%;
+    }
+
+    .scorpiusinfo {
+        top: 50%;
+    }
+
+    /*    mobile stars page*/
+
+    .dropbtn {
+        background-color: #fbb03b;
+        color: #ffffff;
+        padding: 12px;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        border: none;
+        border-radius: 15px;
+        margin: 0 auto;
+        width: 160px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fbb03b;
+        font-family: 'Montserrat', sans-serif;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: #ffffff;
+        padding: 12px 16px;
+        border-radius: 10px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ffffff;
+        color: #fbb03b;
+
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: white;
+        color: #fbb03b;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .return {
+        position: relative;
+        top: -5px;
+    }
+
+    .return p {
+        font-weight: 100;
+        padding-left: 10px;
+    }
+
+    #topBtn {
+        color: #ffffff;
+        background-color: #fbb03b;
+        padding-left: 24px;
+        padding-right: 24px;
+        /*        padding-top: 5px;*/
+        padding-bottom: 13px;
+        font-size: 50px;
+        border-radius: 50%;
+        border: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        font-weight: 100;
+    }
+
+
+    #mobAndromedaImg {
+        width: 60%;
+        margin-left: 20%;
+        padding-top: 30px;
+    }
+
+    #mobAquariusImg {
+        width: 40%;
+        margin-left: 30%;
+        padding-top: 30px;
+    }
+
+    #mobAquilaImg {
+        width: 40%;
+        margin-left: 30%;
+        padding-top: 30px;
+    }
+
+    #mobAriesImg {
+        width: 30%;
+        margin-left: 35%;
+        padding-top: 30px;
+    }
+
+    #mobCancerImg {
+        width: 50%;
+        margin-left: 25%;
+        padding-top: 30px;
+    }
+
+    #mobCapricornusImg {
+        width: 50%;
+        margin-left: 25%;
+        padding-top: 30px;
+    }
+
+    #mobCassiopeiaImg {
+        width: 40%;
+        margin-left: 30%;
+        padding-top: 30px;
+    }
+
+    #mobCepheusImg {
+        width: 60%;
+        margin-left: 20%;
+        padding-top: 30px;
+    }
+
+    #mobCbImg {
+        width: 46%;
+        margin-left: 27%;
+        padding-top: 30px;
+    }
+
+    #mobCygnusImg {
+        width: 50%;
+        margin-left: 25%;
+        padding-top: 30px;
+    }
+
+    #mobDelphinusImg {
+        width: 40%;
+        margin-left: 30%;
+        padding-top: 30px;
+    }
+
+    #mobDracoImg {
+        width: 50%;
+        margin-left: 25%;
+        padding-top: 30px;
+    }
+
+    #mobGeminiImg {
+        width: 46%;
+        margin-left: 27%;
+        padding-top: 30px;
+    }
+
+    #mobHerculesImg {
+        width: 46%;
+        margin-left: 27%;
+        padding-top: 30px;
+    }
+
+    #mobLeoImg {
+        width: 98%;
+        margin-left: 1%;
+        padding-top: 30px;
+    }
+
+    #mobLyraImg {
+        width: 26%;
+        margin-left: 37%;
+        padding-top: 30px;
+    }
+
+    #mobOrionImg {
+        width: 46%;
+        margin-left: 27%;
+        padding-top: 30px;
+    }
+
+    #mobPegasusImg {
+        width: 60%;
+        margin-left: 20%;
+        padding-top: 30px;
+    }
+
+    #mobPerseusImg {
+        width: 30%;
+        margin-left: 35%;
+        padding-top: 30px;
+    }
+
+    #mobPiscesImg {
+        width: 80%;
+        margin-left: 10%;
+        padding-top: 30px;
+    }
+
+    #mobSagittariusImg {
+        width: 60%;
+        margin-left: 20%;
+        padding-top: 30px;
+    }
+
+    #mobScorpiusImg {
+        width: 30%;
+        margin-left: 35%;
+        padding-top: 30px;
+    }
+
+    #mobTaurusImg {
+        width: 70%;
+        margin-left: 15%;
+        padding-top: 30px;
+    }
+
+    #mobUrsaMajorImg {
+        width: 90%;
+        margin-left: 5%;
+        padding-top: 30px;
+    }
+
+    #mobUrsaMinorImg {
+        width: 60%;
+        margin-left: 20%;
+        padding-top: 30px;
+    }
+
+    #mobEridanusImg {
+        width: 90%;
+        margin-left: 5%;
+        padding-top: 30px;
+    }
+
+    #mobCetusImg {
+        width: 90%;
+        margin-left: 5%;
+        padding-top: 30px;
+    }
+
+    #mobVirgoImg {
+        width: 60%;
+        margin-left: 20%;
+        padding-top: 30px;
+    }
+
+    /*    end*/
+
+    body.mythcrea {
+        background-image: none;
+        background-color: #a8cce9;
+    }
+
+    body.family {
+        background: rgb(168, 204, 233);
+    }
+
+    .vineLeft {
+        visibility: visible;
+        position: fixed;
+        z-index: -1;
+        top: 30px;
+        left: 0;
+        width: 19%;
+    }
+
+    .vineRight {
+        visibility: visible;
+        position: fixed;
+        z-index: -1;
+        top: 30px;
+        right: 0;
+        width: 19%;
+        transform: scaleX(-1);
+    }
+
+    .menuWrap .toggler:checked ~ .menu > div {
+        transform: scale(1.2);
+    }
+
+    .menuWrap .menu {
+        left: -4%;
+    }
+
+}
