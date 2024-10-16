@@ -3,10 +3,10 @@ $(document).ready(function () {
     $(".titleCloud").fadeTo(20, 0.01);
     $(".world").click(function () {
 
-        $(".titleCloud").fadeTo(2400, 1);
-        $(".starsCloud").delay(1200).fadeTo(2400, 1);
-        $(".familyCloud").delay(2400).fadeTo(2400, 1);
-        $(".creaturesCloud").delay(3600).fadeTo(2400, 1);
+        $(".titleCloud").fadeTo(1100, 1);
+        $(".starsCloud").delay(600).fadeTo(2400, 1);
+        $(".familyCloud").delay(1000).fadeTo(2400, 1);
+        $(".creaturesCloud").delay(1400).fadeTo(2400, 1);
 
     });
 
@@ -413,27 +413,27 @@ $(document).ready(function () {
 
     //meet the family
 
-    $(".zeusTrophy").hide();
-    $(".heraTrophy").hide();
-    $(".posTrophy").hide();
-    $(".demTrophy").hide();
-    $(".hadesTrophy").hide();
-    $(".hestiaTrophy").hide();
-    $(".heraStand").hide();
-    $(".posStand").hide();
-    $(".demStand").hide();
-    $(".hadesStand").hide();
-    $(".hestiaStand").hide();
-    $(".speechBubble").hide();
-    $(".ares").hide();
-    $(".aphrodite").hide();
-    $(".heph").hide();
-    $(".apollo").hide();
-    $(".artemis").hide();
-    $(".pers").hide();
-    $(".athena").hide();
-    $(".dion").hide();
-    $(".hermes").hide();
+    // $(".zeusTrophy").hide();
+    // $(".heraTrophy").hide();
+    // $(".posTrophy").hide();
+    // $(".demTrophy").hide();
+    // $(".hadesTrophy").hide();
+    // $(".hestiaTrophy").hide();
+    // $(".heraStand").hide();
+    // $(".posStand").hide();
+    // $(".demStand").hide();
+    // $(".hadesStand").hide();
+    // $(".hestiaStand").hide();
+    // $(".speechBubble").hide();
+    // $(".ares").hide();
+    // $(".aphrodite").hide();
+    // $(".heph").hide();
+    // $(".apollo").hide();
+    // $(".artemis").hide();
+    // $(".pers").hide();
+    // $(".athena").hide();
+    // $(".dion").hide();
+    // $(".hermes").hide();
     $(".kids").hide();
     $(".zeusInfo1").hide();
     $(".zeusInfo2").hide();

@@ -1,8 +1,13 @@
-/* !!!!!! NOT ABLE TO TEST ON SAFARI !!!!!! */
-
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+body { 
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 
 body.home {
     background: url(img/background2.svg);
@@ -234,8 +239,8 @@ body.mobStars {
 .world img {
     animation: rotation 25s infinite linear;
     top: -50px;
-    width: 95%;
-    margin-left: 2.5%;
+    width: 80%;
+    margin-left: 10%;
 }
 
 @keyframes rotation {
@@ -296,7 +301,7 @@ body.mobStars {
 #wrapper2 {
     max-width: 1440px;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 10px;
     padding-left: 5%;
     padding-right: 5%;
     display: grid;
@@ -332,6 +337,10 @@ header {
 
 .mobTrophy {
     visibility: hidden;
+}
+
+.gInfo {
+    display: none;
 }
 
 
@@ -937,6 +946,7 @@ ul {
     margin-bottom: 130px;
     padding-bottom: 10px;
     padding-right: 20px;
+    display: none;
 }
 
 .hestiaInfo1 h2 {
